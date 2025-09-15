@@ -29,8 +29,10 @@ jobs:
         pytest test_sample.py -v
 
     - name: Execute notebook
+      env:
+        MPLBACKEND: Agg
       run: |
-        jupyter nbconvert --to notebook --execute "TP_DataCenters_GreenIT_M2_sujet correction.ipynb" --output "notebook_executed.ipynb"
+        jupyter nbconvert --to notebook --execute TP_correction.ipynb --output notebook_executed.ipynb
 
     - name: Upload results
       uses: actions/upload-artifact@v4
